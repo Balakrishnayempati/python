@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add(val)
+        {
+            return new Promise((res)=>{
+                res(val+10)
+            })
+        }
+        function sub(val)
+        {
+            return new Promise((res)=>{
+                res(val-5)
+            })
+        }
+        function mul(val)
+        {
+            return new Promise((res)=>{
+                res(val*3)
+            })
+        }
+        function div(val)
+        {
+            return new Promise((res)=>{
+                res(val/3)
+            })
+        }
+        async function sum() {
+            let a=await add(10)
+            let b=await sub(a)
+            let c=await mul(b)
+            let d=await div(c)
+            console.log(d)
+        }
+        sum()
+    </script>
+</body>
+</html>

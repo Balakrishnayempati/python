@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let a=fetch("https://fakestoreapi.com/products")
+    a.then((val)=>val.json())
+    .then((val)=>
+    {console.log(val[0].id)
+    console.log(val[0].title)
+    console.log(val[0].price)
+    console.log(val[0].description)
+    console.log(val[0].category)
+    let productInfo = `
+            <h2>${val[0].title}</h2>
+            <p><strong>Price:</strong> $${val[0].price}</p>
+            <p><strong>Category:</strong> ${val[0].category}</p>
+            <p>${val[0].description}</p>
+        `;
+
+        let div = document.createElement("div");
+        div.innerHTML = productInfo;
+        document.body.appendChild(div);
+})
+    console.log("Error in api")
+</script>
+</body>
+</html>
